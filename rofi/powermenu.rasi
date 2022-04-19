@@ -1,0 +1,62 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 12";
+    show-icons: true;
+    drun-display-format: "{name}";
+    disable-history: false;
+    fullscreen: false;
+    hide-scrollbar: true;
+    sidebar-mode: false;
+}
+
+@import "catppuccin.rasi"
+
+window {
+	border: 0;
+	width: 310px;
+    location: center;
+}
+
+prompt {
+	padding: 0px 5px 5px 0px;
+	background-color: @black4;
+	text-color: @mauve;
+}
+
+inputbar {
+	children: [ prompt ];
+    background-color: @black4;
+    padding: 15px 0px 8px 25px;
+}
+
+listview {
+    background-color: @black0;
+    columns: 1;
+    lines: 4;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 0px;
+}
+
+element {
+    background-color: @black0;
+    padding: 15px;
+}
+
+element-icon {
+    size: 0px;
+}
+
+element-text {
+    background-color: @black0;
+    text-color: @flamingo;
+}
+
+element-text selected {
+    background-color: @black3;
+}
+
+element selected {
+    background-color: @black3;
+}
