@@ -8,22 +8,22 @@ configuration {
     sidebar-mode: false;
 }
 
-@import "catppuccin.rasi"
+@import "tokyonight.rasi"
 
 window {
-	border: 0;
-	width: 310px;
+    border: 0;
+    width: 310px;
     location: center;
 }
 
 prompt {
-	padding: 0px 5px 5px 0px;
-	background-color: @black4;
-	text-color: @mauve;
+    padding: 0px 5px 5px 0px;
+    background-color: @black4;
+    text-color: @mauve;
 }
 
 inputbar {
-	children: [ prompt ];
+    children: [ prompt ];
     background-color: @black4;
     padding: 15px 0px 8px 25px;
 }

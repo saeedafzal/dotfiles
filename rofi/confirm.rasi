@@ -1,4 +1,4 @@
-@import "catppuccin.rasi"
+@import "tokyonight.rasi"
 
 * {
     background-color: @bg-col;
@@ -7,13 +7,13 @@
 }
 
 window {
-    width:      			225px;
-    padding:    			25px;
-    border:					1px;
-    border-radius:          0px;
-    border-color:           @blue;
-    location:               center;
-    y-offset:               -2em;
+    width:         250px;
+    padding:       25px;
+    border:        1px;
+    border-radius: 0px;
+    border-color:  @blue;
+    location:      center;
+    y-offset:      -2em;
 }
 
 entry {
