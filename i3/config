@@ -207,6 +207,12 @@ hide_edge_borders smart_no_gaps
 gaps inner 6
 gaps outer 6
 
+# Screenshots
+# bindsym Print exec import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
+bindsym Print exec gnome-screenshot -i
+# bindsym $mod+Print exec gnome-screenshot -a
+bindsym $mod+Print exec gnome-screenshot -a -c -f ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
+
 ##
 # Brightness
 ##
