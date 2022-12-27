@@ -36,13 +36,17 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
@@ -58,7 +62,7 @@ bindsym $mod+Shift+q kill
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+d exec "~/.config/rofi/scripts/launcher.sh"
 
 # change focus
 bindsym $mod+j focus left
@@ -112,16 +116,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1. "
+set $ws1 "1. "
 set $ws2 "2. "
 set $ws3 "3. "
-set $ws4 "4. "
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10. "
+set $ws10 "10. "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -153,7 +157,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec ".config/polybar/scripts/powermenu.sh"
+bindsym $mod+Shift+e exec "~/.config/rofi/scripts/powermenu.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -188,8 +192,10 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 
+# --- Custom ---
+
 ##
-# i3 gaps
+# i3
 ##
 new_window pixel 1
 new_float pixel 1
@@ -198,36 +204,12 @@ for_window [class=".*"] border pixel 2
 hide_edge_borders both
 popup_during_fullscreen leave_fullscreen
 
-smart_gaps on
 smart_gaps inverse_outer
-smart_borders on
 smart_borders no_gaps
 hide_edge_borders smart_no_gaps
 
 gaps inner 6
 gaps outer 6
-
-# Screenshots
-# bindsym Print exec import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
-bindsym Print exec gnome-screenshot -i
-# bindsym $mod+Print exec gnome-screenshot -a
-bindsym $mod+Print exec gnome-screenshot -a -c -f ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
-
-##
-# Brightness
-##
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-
-##
-# Wallpaper
-##
-exec_always feh --bg-scale ~/Pictures/wallpaper.*
-
-##
-# betterlockscreen
-##
-bindsym $mod+x exec "betterlockscreen -l dimblur --display 1"
 
 ##
 # Colours
@@ -235,11 +217,33 @@ bindsym $mod+x exec "betterlockscreen -l dimblur --display 1"
 client.focused #4c7899 #4c7899 #2e9ef4 #4c7899 #4c7899
 
 ##
-# Polybar
+# Brightnessctl
 ##
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 ##
 # Picom
 ##
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
+##
+# Wallpaper
+##
+exec_always feh --bg-scale ~/Pictures/wallpaper.*
+
+##
+# Lock Screen
+##
+bindsym $mod+x exec "betterlockscreen -l dimblur --display 1"
+
+##
+# Polybar
+##
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+##
+# Screenshots
+##
+bindsym Print exec gnome-screenshot -i
+bindsym $mod+Print exec gnome-screenshot -a -c -f ~/Pictures/$(date '+%Y%m%d-%H%M%S').png

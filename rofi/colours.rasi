@@ -1,0 +1,24 @@
+* {
+    bg-col: #1e1e2e;
+    bg-col-light: #1e1e2e;
+    border-col: #1e1e2e;
+    selected-col: #1e1e2e;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #f38ba8;
+    grey: #6c7086;
+
+    BG:    #1E1D2Fff;
+    BGA:   #89DCEBff;
+    FG:    #D9E0EEff;
+    FGA:   #F28FADff;
+    BDR:   #96CDFBff;
+    SEL:   #1E1E2Eff;
+    UGT:   #F28FADff;
+    IMG:   #FAE3B0ff;
+    OFF:   #575268ff;
+    ON:    #ABE9B3ff;
+
+    width: 600;
+    font: "JetBrainsMono Nerd Font 14";
+}

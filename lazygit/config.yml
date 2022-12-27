@@ -1,7 +1,0 @@
-# $HOME/Library/Application Support/lazygit/config.yml
-
-gui:
-  theme:
-    lightTheme: false
-    selectedLineBgColor:
-      - reverse
