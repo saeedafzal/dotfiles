@@ -1,0 +1,52 @@
+# General Window Management
+alt - e : yabai -m window --toggle split
+alt - r : yabai -m space --balance
+alt - t : yabai -m window --toggle float
+
+alt - d : yabai -m window --toggle zoom-parent
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+alt - x : yabai -m window --close
+
+# Focus
+alt - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east || yabai -m window --focus stack.next || yabai -m window --focus stack.first
+
+# swap window
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+
+# move window
+alt + ctrl - h : yabai -m window --warp west
+alt + ctrl - j : yabai -m window --warp south
+alt + ctrl - k : yabai -m window --warp north
+alt + ctrl - l : yabai -m window --warp east
+
+# send window to monitor and follow focus
+alt - 1 : yabai -m window --display 1
+alt - 2 : yabai -m window --display 2
+
+# space
+alt + shift - c : yabai -m space --create
+alt + shift - d : yabai -m space --destroy
+
+alt + ctrl - 1 : yabai -m window --space 1
+alt + ctrl - 2 : yabai -m window --space 2
+alt + ctrl - 3 : yabai -m window --space 3
+alt + ctrl - 4 : yabai -m window --space 4
+
+alt + shift - p : yabai -m space --focus next
+alt + shift - o : yabai -m space --focus prev
+
+alt + shift - 1 : yabai -m space --focus 1
+alt + shift - 2 : yabai -m space --focus 2
+alt + shift - 3 : yabai -m space --focus 3
+alt + shift - 4 : yabai -m space --focus 4
+alt + shift - 5 : yabai -m space --focus 5
+alt + shift - 6 : yabai -m space --focus 6
+alt + shift - 7 : yabai -m space --focus 7
+alt + shift - 8 : yabai -m space --focus 8
