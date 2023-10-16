@@ -11,6 +11,4 @@ for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar --reload main &
 done
 
-# polybar main 2>&1 | tee -a /tmp/polybar-main.log & disown
-
 echo "Bars launched..."
